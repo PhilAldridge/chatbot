@@ -1,0 +1,77 @@
+@import 'Variables.scss';
+
+.ChatContainer {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.MsgContainer {
+    display: flex;
+    width: 100%;
+}
+
+.MsgPadder {
+    flex-grow: 1;
+}
+
+.Msg {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: $border-radius;
+    max-width: 80%;
+    color: white;
+    text-align: left;
+}
+
+.ButtonMsg {
+    background-color: $BJSSOrange;
+    color: black;
+    margin-left: 4rem;
+    border: 2px solid $BJSSOrange;
+    transition: all .15s linear;
+}
+
+.ButtonMsg:hover {
+    background: $BJSSOrangeDarken;
+    border-color: $BJSSOrangeDarken;
+    cursor: pointer;
+}
+
+.RobotMsg {
+    background-color: $BJSSBlue;
+}
+
+.RobotMsg::before {
+    content: url('robot-solid (1).svg');
+    padding-right: 0.5rem;
+}
+
+.UserMsg {
+    background-color: $BJSSPurple;
+}
+
+.UserMsg::after {
+    content: url('user-solid (1).svg');
+    padding-left: 0.5rem;
+}
+
+.ChatContainer .UserMsg:last-child {
+    animation: rollUp 1s ease-out 0s 1 normal forwards;
+}
+.ChatContainer div:last-child {
+    animation: rollRight 1s ease-out 0s 1 normal forwards;
+}
+
+@keyframes rollUp {
+    0% {opacity: 0; transform: translateY(100%);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes rollRight {
+    0% {opacity: 0; transform: translateX(-100%);}
+    100% {opacity: 1; transform: translateX(0);}
+}

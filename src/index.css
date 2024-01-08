@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext');
+
+body {
+  margin: 0;
+  font-family: 'Poppins',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width:100vw;
+  
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

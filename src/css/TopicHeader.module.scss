@@ -1,0 +1,95 @@
+@import 'Variables.scss';
+
+
+.Header{
+    border-bottom: 1px solid $BJSSLightGrey;
+    display: flex;
+    align-items: center;
+    width:100%;
+    gap:0.5rem;
+    height: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.Logo {
+    height: 4rem;
+    margin-left: 1rem;
+}
+
+.HeaderTitle {
+    flex-grow: 1;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+}
+.HeaderTopic {
+    flex-grow: 1;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    text-wrap: wrap;
+}
+
+.HeaderInfo {
+    border: 3px solid $BJSSDarkGrey;
+    border-radius: 50%;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    width:2rem;
+    height: 2rem;
+    background-color: $BJSSLightGrey;
+    margin-right: 1rem;
+    position: relative; 
+    font-weight: 600;
+}
+
+.HeaderInfo::after {
+    content: "Find out more about how AIEAN works";
+    position: absolute;
+    display: none;
+    top: 115%; /* Position the tooltip above the button */ 
+    left: 50%; /* Center the tooltip horizontally */ 
+    transform: translateX(-50%); /* Center the tooltip horizontally */ 
+    background-color: $BJSSDarkGrey; /* Tooltip background color */ 
+    color: #fff; /* Tooltip text color */ 
+    padding: 5px; /* Add some padding to the tooltip */ 
+    border-radius: $border-radius;
+    white-space:pre-wrap;
+    font-size: 0.6rem;
+    font-weight: lighter;
+}
+
+.HeaderInfo:hover{
+    cursor: pointer;
+    background-color: #D9DCE0 ;
+}
+
+.HeaderInfo:hover::after {
+    display: block;
+}
+
+.HeaderInfo:active {
+    transform: translateY(1px);
+}
+
+.NewTopicButton {
+    text-wrap: wrap;
+    border-radius: $border-radius;
+    background-color: $BJSSOrange;
+    border: 2px solid $BJSSOrange;
+    text-align: center;
+    transition: all .15s linear;
+    height: 100%;
+    font-size: 0.8rem;
+    flex-shrink: 1;
+    padding: 0.3rem;
+}
+
+.NewTopicButton:hover {
+    background-color: $BJSSOrangeDarken;
+    cursor: pointer;
+    border-color: $BJSSOrangeDarken;
+}
