@@ -23,12 +23,12 @@
     padding: 0.5rem;
     border-radius: $border-radius;
     max-width: 80%;
-    color: white;
+    color: black;
     text-align: left;
 }
 
 .ButtonMsg {
-    background-color: $BJSSOrange;
+    background-color: white;
     color: black;
     margin-left: 4rem;
     border: 2px solid $BJSSOrange;
@@ -42,16 +42,17 @@
 }
 
 .RobotMsg {
-    background-color: $BJSSBlue;
+    background-color: $BJSSLightGrey;
 }
 
 .RobotMsg::before {
-    content: url('robot-solid (1).svg');
+    content: url('robot-solid.svg');
     padding-right: 0.5rem;
 }
 
 .UserMsg {
-    background-color: $BJSSPurple;
+    background-color: $BJSSBlue;
+    color: white;
 }
 
 .UserMsg::after {

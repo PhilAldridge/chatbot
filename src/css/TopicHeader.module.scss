@@ -52,13 +52,13 @@
     display: none;
     top: 115%; /* Position the tooltip above the button */ 
     left: 50%; /* Center the tooltip horizontally */ 
-    transform: translateX(-50%); /* Center the tooltip horizontally */ 
+    transform: translateX(-90%); /* Center the tooltip horizontally */ 
     background-color: $BJSSDarkGrey; /* Tooltip background color */ 
     color: #fff; /* Tooltip text color */ 
     padding: 5px; /* Add some padding to the tooltip */ 
     border-radius: $border-radius;
-    white-space:pre-wrap;
-    font-size: 0.6rem;
+    white-space:nowrap;
+    font-size: 0.7rem;
     font-weight: lighter;
 }
 

@@ -17,15 +17,23 @@ function InputBar(props:InputProps) {
             placeholder='Write a message...'
             value={input}
             onChange={(e)=>setInput(e.target.value)}
+            onKeyDown={(e)=>handleInput(e)}
         ></input>
-        <button className={styles.InputButton} onClick={()=>{
-            setInput('');
-            props.handleSubmit(input)
-        }} >
+        <button className={styles.InputButton} disabled={input===''} onClick={submitPrompt} >
             <img src='images/sendIcon.png' alt="Send" className={styles.InputIcon} />
         </button>
     </div>
   )
+
+  function handleInput(e: React.KeyboardEvent<HTMLInputElement>) {
+    if(e.key !== 'Enter' || input==='') return;
+    submitPrompt()
+  }
+
+  function submitPrompt() {
+    setInput('');
+    props.handleSubmit(input)
+  }
 }
 
 export default InputBar
