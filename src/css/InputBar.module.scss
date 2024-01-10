@@ -1,7 +1,9 @@
+@import 'Variables.scss';
+
 .InputBar{
     width: 100%;
-    background-color: #E2E2E2;
-    color: #707070;
+    background-color: $BJSSLightGrey;
+    color: $BJSSDarkGrey;
     display: flex;
 }
 

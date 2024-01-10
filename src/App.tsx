@@ -1,51 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TopicHeader from './components/TopicHeader';
 import styles from './css/App.module.scss'
 import ChatContainer from './components/ChatContainer';
 import InputBar from './components/InputBar';
 
+const starterMessages:Message[] = [
+  {type:'bot', text:'Hello, I am here to help you to find out more about Enterprise Agile. '},
+  {type: 'bot', text: 'To begin, choose one of the frequently asked questions below, or type your own question at the bottom of the page: '},
+  {type: 'button', text: 'What is included in the Enterprise Agile book?'},
+  {type: 'button', text: 'What type of business is the Enterprise Agile approach appropriate for?'},
+  {type: 'button', text: 'Is Enterprise Agile relevant to a specific industry or sector?'},
+  {type: 'button', text: 'Does Enterprise Agile account for projects with large vendor ecosystems?'}
+]
+
 function App() {
   const [topic,setTopic]=useState('');
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputVisible, setInputVisible] = useState(true);
+  const [messageQueue, setMessageQueue] = useState<Message[]>(starterMessages);
 
-  if(topic==='' && messages.length===0) {
-      setInputVisible(false)
-      setMessages([{
-          type: 'bot',
-          text: 'Hello, I am here to help you to find out more about Enterprise Agile. '
-      }]);
+  useEffect(()=>{
+    if(messageQueue.length>0) {
+      const timeoutDuration = messages.length!==0 && messages[messages.length-1].type==='button'? 200 : 1000;
       setTimeout(()=>{
-          setMessages((messages)=>[...messages, {
-              type: 'bot',
-              text: 'To begin, choose one of the frequently asked questions below, or type your own question at the bottom of the page: '
-          }])
-      },1000)
-
-      setTimeout(()=> {
-          setMessages((messages)=>[...messages, {
-              type: 'button',
-              text: 'What is included in the Enterprise Agile book?'
-          },{
-              type: 'button',
-              text: 'What type of business is the Enterprise Agile approach appropriate for?'
-          },{
-              type: 'button',
-              text: 'Is Enterprise Agile relevant to a specific industry or sector?'
-          },{
-              type: 'button',
-              text: 'Does Enterprise Agile account for projects with large vendor ecosystems?'
-          },])
-          setInputVisible(true)
-      },2000)
-  }
+        setMessages((messages)=>[...messages, messageQueue[0]])
+        setMessageQueue((messages)=>messages.slice(1))
+      },timeoutDuration)
+    }
+  },[messageQueue, messages])
 
   return (
     <div className={styles.App}>
       <div className={styles.ChatBar}>
         <TopicHeader topic={topic} newTopic={newTopic}/>
         <ChatContainer messages={messages} handleClick={handleSubmit}/>
-        {inputVisible && <InputBar handleSubmit={handleSubmit} />}
+        {messageQueue.length===0 && <InputBar handleSubmit={handleSubmit} />}
 
       </div>
       

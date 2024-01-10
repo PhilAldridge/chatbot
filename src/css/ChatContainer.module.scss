@@ -41,6 +41,11 @@
     cursor: pointer;
 }
 
+.ButtonMsg:active {
+    background-color: $BJSSOrangeLighten;
+    border-color: $BJSSOrangeLighten;
+}
+
 .RobotMsg {
     background-color: $BJSSLightGrey;
 }
