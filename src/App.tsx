@@ -32,7 +32,8 @@ function App() {
     <div className={styles.App}>
       <div className={styles.ChatBar}>
         <TopicHeader topic={topic} newTopic={newTopic}/>
-        <ChatContainer messages={messages} handleClick={handleSubmit}/>
+        {false && <ChatContainer messages={messages} handleClick={handleSubmit}/>}
+        <div id="webchat" role="main"></div>
         {messageQueue.length===0 && <InputBar handleSubmit={handleSubmit} />}
 
       </div>
